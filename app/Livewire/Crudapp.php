@@ -30,4 +30,6 @@ class Crudapp extends Component
     {
         return view('livewire.crudapp');
     }
+
 }
+

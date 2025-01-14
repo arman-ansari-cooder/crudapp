@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Crudapp;
+use App\Livewire\ProductInsert;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,3 +19,4 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', Crudapp::class);
+Route::get('/insert',ProductInsert::class);
