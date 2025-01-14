@@ -1,6 +1,7 @@
 <?php
 
 use App\Livewire\Crudapp;
+use App\Livewire\DisplayInformation;
 use App\Livewire\ProductInsert;
 use Illuminate\Support\Facades\Route;
 
@@ -20,3 +21,4 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::get('/', Crudapp::class);
 Route::get('/insert',ProductInsert::class);
+Route::get('/display',DisplayInformation::class);

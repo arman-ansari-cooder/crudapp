@@ -10,7 +10,7 @@ class ProductInsert extends Component
 {
 
     public $product;
-    public $category;
+   
 
     public function save()
     {
