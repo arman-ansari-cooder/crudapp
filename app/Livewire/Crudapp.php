@@ -11,17 +11,18 @@ class Crudapp extends Component
         'category' => 'required|string|min:3|max:255',
     ];
 
-    public function submit()
+    public function save()
     {
-        
-        $this->validate();
 
-       
+        $this->validate([
+            'category' => 'required|string|min:3|max:255', 
+        ]);
+
         session()->flash('message', 'Category submitted successfully.');
     }
 
     public function render()
     {
-        return view('livewire.crudapp')->layout('components.layouts.app');
+        return view('livewire.crudapp');
     }
 }
