@@ -2,8 +2,8 @@
 
 namespace App\Livewire;
 
-use App\Models\ProductAdd;
 use App\Models\Category;
+use App\Models\ProductAdd;
 use Livewire\Component;
 
 class DisplayInformation extends Component
@@ -12,47 +12,24 @@ class DisplayInformation extends Component
     public $editMode;
     public function render()
     {
-        $categories = Category::all(); 
-        $product = ProductAdd::all(); 
-    
-        return view('livewire.display-information', compact('product', 'categories'));
+        $product = ProductAdd::all();
+        $Category = Category::all();
+
+        return view('livewire.display-information', compact('product', 'Category'));
     }
 
     public function delete($id)
     {
-        ProductAdd::findOrFail($id)->delete(); 
+        ProductAdd::findOrFail($id)->delete();
 
         session()->flash('message', 'Product deleted successfully!');
     }
     public function edit($id)
-{
-    $this->editMode = true; 
-    $product = ProductAdd::find($id);
-
-    
-    $this->categories = Category::all();
-
-   
-    $this->productId = $product->id;
-    $this->product = $product->product;
-    $this->category = $product->category_id;
-}
-
-
-    public function updateProduct()
     {
-        $this->validate([
-            'product' => 'required|string|max:255',
-            'category' => 'required|exists:categories,id',
-        ]);
-
-        $product = ProductAdd::find($this->productId);
-        $product->update([
-            'product' => $this->product,
-            'category_id' => $this->category,
-        ]);
-
-        $this->editMode = false;
-        session()->flash('message', 'Product updated successfully!');
+        
+        return redirect()->route('edit', ['id' => $id]);
     }
+    
+
+
 }

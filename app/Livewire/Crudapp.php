@@ -17,7 +17,7 @@ class Crudapp extends Component
     {
 
         $this->validate([
-            'category' => 'required|string|min:3|max:255', 
+            'category' => 'required|string|min:3|max:255',
         ]);
         Category::create([
             'category' => $this->category,  // Save the input value

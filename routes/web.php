@@ -2,6 +2,7 @@
 
 use App\Livewire\Crudapp;
 use App\Livewire\DisplayInformation;
+use App\Livewire\Edit;
 use App\Livewire\ProductInsert;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 Route::get('/', Crudapp::class);
-Route::get('/insert',ProductInsert::class);
-Route::get('/display',DisplayInformation::class);
+Route::get('/insert',ProductInsert::class);;
+Route::get('/display',DisplayInformation::class)->name('display');
+Route::get('/edit/{id}',Edit::class)->name('edit');

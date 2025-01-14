@@ -10,13 +10,13 @@ class ProductInsert extends Component
 {
 
     public $product;
-   
+    public $category;
 
     public function save()
     {
         $this->validate([
-            'product' =>'required|string|min:3|max:255',
-            'category' => 'required|string', 
+            'product' => 'required|string|min:3|max:255',
+            'category' => 'required|string',
         ]);
         ProductAdd::create([
             'product' => $this->product,
@@ -26,8 +26,8 @@ class ProductInsert extends Component
     }
     public function render()
     {
-           $categories = Category::all();
-           return view('livewire.product-insert', compact('categories'));
+        $categories = Category::all();
+        return view('livewire.product-insert', compact('categories'));
     }
 
 }
